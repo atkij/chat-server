@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Hello</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        font-family: Roboto, Arial, Sans-Serif;
+      }
+      
+      div#message-send {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        height: 50px;
+        border-top: 1px solid #000;
+        background-color: #fff;
+      }
+      
+      div#messages-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        width: 100%;
+        height: calc(100% - 50px);
+      }
+      div#messages {
+      }
+      input#message-text {
+        display: inline-block;
+        height: 100%;
+        border: none;
+        outline: none;
+        font-size: 1em;
+        padding-left: 10px;
+        width: calc(100% - 70px);
+      }
+      input#send-message {
+        font-size: 2.5em;
+        height: 100%;
+        width: 50px;
+        float: right;
+        border: none;
+        outline: none;
+        background-color: #fff;
+        cursor: pointer;
+      }
+      form#message-form {
+        display: contents;
+      }
+      div#msg-wrapper {
+        padding: 10px;
+        font-size: 1em;
+        margin-bottom: 5px;
+      }
+      p#msg-name {
+        font-weight: bold;
+        margin: 0;
+      }
+      p#msg-text {
+        margin: 0;
+        margin-top: 5px;
+      }
+      body#flashy {
+        width: 100px;
+        height: 100px;
+        background-color: #fff;
+        animation-name: flashy;
+        animation-duration: 1s;
+        animation-iteration-count: 10;
+        animation-direction: alternate;
+      }
+      body#flashy2 {
+        width: 100px;
+        height: 100px;
+        background-color: #fff;
+        animation-name: flashy2;
+        animation-duration: 1s;
+        animation-iteration-count: 10;
+        animation-direction: alternate;
+      }
+      @keyframes flashy {
+        0%   {background-color: red;}
+        20%  {background-color: yellow;}
+        40%  {background-color: blue;}
+        60% {background-color: green;}
+        80% {background-color: purple;}
+        100% {background-color: orange;}
+      }
+      @keyframes flashy2 {
+        0%   {background-color: red;}
+        20%  {background-color: yellow;}
+        40%  {background-color: blue;}
+        60% {background-color: green;}
+        80% {background-color: purple;}
+        100% {background-color: orange;}
+      }
+      audio {
+        display: none;
+      }
+    </style>
+	</head>
+	<body>
+    <div id="messages-container">
+      <div id="messages">
+      </div>
+    </div>
+		<div id="message-send">
+      <form id="message-form">
+        <input id="message-text" type="text" placeholder="Send a message" autocomplete="off">
+        <input type="submit" value="&#10148;" id="send-message">
+      </form>
+    </div>
+		<script src="js/chat-v2.js"></script>
+	</body>
+</html>
