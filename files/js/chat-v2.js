@@ -5,7 +5,7 @@ function getMessage (callback) {
     if (xhr.status === 200) {
       try {
         var responseObject = JSON.parse(xhr.responseText);
-        if (true || !doReceiveFlags(responseObject.message)) {
+        if (!doReceiveFlags(responseObject.message)) {
           callback(responseObject.message, responseObject.name);
           saveMessage(responseObject.message, responseObject.name);
         }
@@ -152,7 +152,7 @@ form.addEventListener("submit", function (e) {
   if (!/\S/.test(msg) || msg == null || msg == "") {
       this.reset();
   } else {
-    if (true || !doSendFlags(msg)) {
+    if (!doSendFlags(msg)) {
       sendMessage(msg, name);
     }
     this.reset();
