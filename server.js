@@ -1,6 +1,7 @@
 const http = require("http");
 const fs = require("fs");
 const url = require("url");
+const path = require("path");
 
 var accept = true
 var connections = new Array()
@@ -48,7 +49,7 @@ http.createServer(function (req, res) {
 		res.writeHead(200);
 		res.end();
 	} else if (q.pathname == "/") {
-		var filename = "./files/html/index.html";
+		var filename = path.join(__dirname, "files", "html", "index.html");
 		/*fs.readFile(filename, function (err, data) { 
 			if (err) {
 				res.writeHead(404, {"Content-Type": "text/html"});
@@ -63,7 +64,7 @@ http.createServer(function (req, res) {
     res.writeHeader(301, {"Location": "/v2"});
     res.end();
 	} else if (q.pathname == "/v2") {
-    var filename = "./files/html/index-v2.html";
+    var filename = path.join(__dirname, "files", "html", "index-v2.html");
 		fs.readFile(filename, function (err, data) { 
 			if (err) {
 				res.writeHead(404, {"Content-Type": "text/html"});
@@ -75,7 +76,7 @@ http.createServer(function (req, res) {
 			}
 		});
   }  else {
-		var filename = "./files" + q.pathname;
+		var filename = path.join(__dirname, "files", q.pathname);
 		fs.readFile(filename, function (err, data) { 
 			if (err) {
 				res.writeHead(404, {"Content-Type": "text/html"});
