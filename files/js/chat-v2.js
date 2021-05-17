@@ -103,40 +103,48 @@ function loadMessages () {
 }
 
 function doSendFlags(flag) {
-  if (btoa(flag) == "Om1hc3Rlcl9yZXNldF9hbGw=") {
-    localStorage.clear();
-    location.reload();
-    return true;
-  } else if (btoa(flag) == "Om1hc3Rlcl9yZXNldF9uYW1l") {
-    localStorage.removeItem("name");
-    location.reload();
-    return true;
-  } else if (btoa(flag) == "Om1hc3Rlcl9yZXNldF9tZXNzYWdlcw==") {
-    localStorage.removeItem("messages");
-    location.reload();
-    return true;
-  } else {
+  try {
+    if (btoa(flag) == "Om1hc3Rlcl9yZXNldF9hbGw=") {
+      localStorage.clear();
+      location.reload();
+      return true;
+    } else if (btoa(flag) == "Om1hc3Rlcl9yZXNldF9uYW1l") {
+      localStorage.removeItem("name");
+      location.reload();
+      return true;
+    } else if (btoa(flag) == "Om1hc3Rlcl9yZXNldF9tZXNzYWdlcw==") {
+      localStorage.removeItem("messages");
+      location.reload();
+      return true;
+    } else {
+      return false;
+    }
+  } catch (e) {
     return false;
   }
 }
 
 function doReceiveFlags(flag) {
-  if (btoa(flag) == "OnJlZnJlc2hfYWxs") {
-    location.reload();
-    return true;
-  } else if (btoa(flag) == "OmZsYXNoeV9yYWluYm93X2Vhc3RlcmVnZw==") {
-    if (document.body.id == "flashy") {
-      document.body.id = "flashy2";
+  try {
+    if (btoa(flag) == "OnJlZnJlc2hfYWxs") {
+      location.reload();
+      return true;
+    } else if (btoa(flag) == "OmZsYXNoeV9yYWluYm93X2Vhc3RlcmVnZw==") {
+      if (document.body.id == "flashy") {
+        document.body.id = "flashy2";
+      } else {
+        document.body.id = "flashy";
+      }
+      return true;
     } else {
-      document.body.id = "flashy";
+      return false;
     }
-    return true;
-  } else {
+  } catch (e) {
     return false;
   }
 }
 
-name = getName();
+var name = getName();
 
 
 var form = document.getElementById("message-form");
