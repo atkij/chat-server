@@ -22,3 +22,4 @@ You could also add a cron job to start it when your system starts.
 ## Notes
  - May not run on Windows I might add support for that later
  - Also has some easter eggs. See if you can find those :)
+ - It now runs on Windows and probably Mac OSX too 
